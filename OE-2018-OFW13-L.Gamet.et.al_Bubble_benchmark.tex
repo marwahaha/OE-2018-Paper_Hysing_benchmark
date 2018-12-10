@@ -77,11 +77,8 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 \section{Introduction}
 %%======================================================================
 
-Gas-liquid flow systems are often encountered in the chemical process industry, with various 
-scales ranging from large bubble columns, plate columns, agitated vessels, surface aerators, 
-jets, static mixers or micro-reactors. Their applications are generally reactive flow systems,
-mixing, stripping or saturation systems. Complex phenomena of turbulent hydrodynamics involving
-breakup and coalescence, coupled with gas-liquid mass and heat transfers, appear in such systems.
+Gas-liquid interfacial flow systems are often encountered in a wide variety of configurations, in science, engineering or industry. In ocean engineering, floating wind turbines, oil and gas platforms, or more generally coastal and offshore structures are submitted to violent waves, which is a paramount concern for their correct dimensioning. In the chemical process industry, various scales of gas-liquid flows are encountered ranging from large bubble columns, plate columns, agitated vessels, surface aerators, jets, static mixers or micro-reactors. Their applications are generally reactive flow systems, mixing, stripping or saturation systems. Complex phenomena of turbulent hydrodynamics involving breakup and coalescence, coupled with gas-liquid mass and heat transfers, appear in such systems. Many other applications of interfacial flows can be found. Their list would be endless, but we can cite domains like inkjet printing, automotive applications (liquid films, fuel injection, aquaplaning, ...), ship manoeuvring, tank sloshing, hydraulic pumps, metal casting, fire sprinklers, atomizers, etc ... The list of domains that may benefit from improved solution methods to the interface advection problem is thus almost endless. 
+
 Thanks to the increase of computing resources, highly resolved simulations gain more and more 
 interest to analyze in detail the physics of such multiphase flows. Many numerical methods 
 have emerged to attempt to simulate gas-liquid flows. Among these, implicit interface capturing 
@@ -92,12 +89,12 @@ Before running into complex geometries, elementary quantitative benchmark config
 essential for validation and comparison of interfacial flow solvers. Hysing et 
 al.~\cite{Hysing2009} have proposed a 2D benchmark consisting in a single rising bubble in 
 a quiescent liquid. Two different cases are described in~\cite{Hysing2009}, corresponding to 
-different density, viscosity and surface tension ratios. More recently, Adelsberger et al.~\cite{Adelsberger2014} have published a 3D equivalent of the same benchmark. For both these benchmarks, result 
-data was made available online by the authors at the URLs mentioned in the bibliography. 
+different density, viscosity and surface tension ratios. More recently, Adelsberger et al.~\cite{Adelsberger2014} have published a 3D equivalent of the same benchmark. For both these benchmarks, result data was made available online by the authors at the URLs mentioned in the bibliography. 
 
-Roenby et al.~\cite{Roenby160405} have recently developed a new geometric VoF method, called isoAdvector, for advecting the interface between two incompressible fluids. This method was implemented in OpenFOAM-v1706 in the new solver \verb+interIsoFoam+. IsoAdvector gives a sharper interface, but validation data for this new method is still sparse, especially for surface tension dominated flows. Following the single rising bubble benchmarks~\cite{Hysing2009,Adelsberger2014}, the objective of 
-this paper is to perform quantitative comparisons of the isoAdvector method with the benchmark 
-data. Furthermore, the isoAdvector results are compared with results from OpenFOAM's original interfacial flow solver, \verb+interFoam+.
+Roenby et al.~\cite{Roenby160405} have recently developed a new geometric VoF method, called isoAdvector, for advecting the interface between two incompressible fluids. This method was implemented in OpenFOAM-v1706 in the new solver \verb+interIsoFoam+. 
+More recently, Scheufler and Roenby~\cite{Scheufler2018} have introduced a novel computational interface reconstruction scheme based on the calculation of a reconstructed distance function (RDF). This new scheme has been combined with the interface advection step of the isoAdvector algorithm~\cite{Scheufler2018}. Second order convergence with reduced absolute errors is obtained for simple test cases on all mesh types. The implementation of the proposed interface reconstruction scheme is straightforward and its computational cost is low. 
+
+IsoAdvector gives a sharper interface, but validation data for this new method is still sparse, especially for surface tension dominated flows. Following the single rising bubble benchmarks~\cite{Hysing2009,Adelsberger2014}, the objective of this paper is to perform quantitative comparisons of the isoAdvector method with the benchmark data. Furthermore, the isoAdvector results are compared with results from OpenFOAM's original interfacial flow solver, \verb+interFoam+~\cite{Weller2008}.
 
 %%======================================================================
 \section{Numerical methods}
@@ -105,12 +102,10 @@ data. Furthermore, the isoAdvector results are compared with results from OpenFO
 We consider here an unsteady, laminar and incompressible two-phase flow. The governing equations are the continuity equation for the fluid-wise constant mass density field, the Navier-Stokes 
 equations for the momentum evolution, and the incompressibility condition for the velocity field. 
 
-In the VoF method, the continuity equation is converted into an evolution equation for the volume fraction field $\alpha$, representing for each cell the fraction of its volume, which is occupied by one of the two fluids. Special care must be taken in the numerics to prevent smearing of the $\alpha$-field and at the same time keeping it bounded ($0\leq \alpha\leq 1$). In the \verb|interFoam| solver, sharpness is obtained by introducing an artificial interface compression term in the $\alpha$-equation \cite{Weller2008}, and boundedness is ensured by employing the MULES limiter (Multidimensional Universal Limiter with Explicit Solution). More details can be found in Deshpande~\cite{Deshpande2012}.
+In the VoF method, the continuity equation is converted into an evolution equation for the volume fraction field $\alpha$, representing for each cell the fraction of its volume, which is occupied by one of the two fluids. Special care must be taken in the numerics to prevent smearing of the $\alpha$-field and at the same time keeping it bounded ($0\leq \alpha\leq 1$). In the \verb|interFoam| solver, sharpness is obtained by introducing an artificial interface compression term in the $\alpha$-equation~\cite{Weller2008}, and boundedness is ensured by employing the MULES limiter (Multidimensional Universal Limiter with Explicit Solution). More details can be found in Deshpande~\cite{Deshpande2012}.
 
-The solver \verb+interFoam+ has been widely used and validated~\cite{MARSCHALL2012,RAEINI2012,HOANG2013,BILGER2017}, but under some conditions the described method may fail in keeping the interface sufficiently sharp. Furthermore, the heuristic nature of the added compression term can lead to inaccurate interface advection and undesirable features such as unphysical ripples on the interface \cite{roenby_new_2017,roenby_isoadvector:_2018}. This motivated the developmed of the isoAdvector geometric VoF method, which was first presented by Roenby et al.~\cite{Roenby160405}. Here it was tested with a variety of pure advection cases yielding very good results in terms of volume conservation, interface sharpness, boundedness and shape preservation. 
-With recent improvements, the method has been made consistently second order for all 
-mesh types (See Scheufler and Roenby~\cite{Scheufler2018}). The isoAdvector method
-implements new ideas in both the interface reconstruction step and the interface advection step.
+The solver \verb+interFoam+ has been widely used and validated~\cite{MARSCHALL2012,RAEINI2012,HOANG2013,BILGER2017}, but under some conditions the described method may fail in keeping the interface sufficiently sharp. Furthermore, the heuristic nature of the added compression term can lead to inaccurate interface advection and undesirable features such as unphysical ripples on the interface \cite{roenby_new_2017,roenby_isoadvector:_2018}. This motivated the development of the isoAdvector geometric VoF method, which was first presented by Roenby et al.~\cite{Roenby160405}. In the latter reference, it was tested with a variety of pure advection cases yielding very good results in terms of volume conservation, interface sharpness, boundedness and shape preservation. 
+With recent improvements, the method has been made consistently second order for all mesh types (See Scheufler and Roenby~\cite{Scheufler2018}). The isoAdvector method implements new ideas in both the interface reconstruction step and the interface advection step.
 The reconstruction step uses efficient isosurface calculations to compute the distribution
 of fluids in a grid cell. The interface advection step uses a novel division of
 a physical time step into sub-time steps on which the volume fraction flux through a 
