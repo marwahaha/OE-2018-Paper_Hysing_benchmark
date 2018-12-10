@@ -77,7 +77,7 @@ This template helps you to create a properly formatted \LaTeX\ manuscript.
 \section{Introduction}
 %%======================================================================
 
-Gas-liquid interfacial flow systems are often encountered in a wide variety of configurations, in science, engineering or industry. In ocean engineering, floating wind turbines, oil and gas platforms, or more generally coastal and offshore structures are submitted to violent waves, which is a paramount concern for their correct dimensioning. In the chemical process industry, various scales of gas-liquid flows are encountered ranging from large bubble columns, plate columns, agitated vessels, surface aerators, jets, static mixers or micro-reactors. Their applications are generally reactive flow systems, mixing, stripping or saturation systems. Complex phenomena of turbulent hydrodynamics involving breakup and coalescence, coupled with gas-liquid mass and heat transfers, appear in such systems. Many other applications of interfacial flows can be found. Their list would be endless, but we can cite domains like inkjet printing, automotive applications (liquid films, fuel injection, aquaplaning, ...), ship manoeuvring, tank sloshing, hydraulic pumps, metal casting, fire sprinklers, atomizers, etc ... The list of domains that may benefit from improved solution methods to the interface advection problem is thus almost endless. 
+Gas-liquid interfacial flow systems are often encountered in a wide variety of configurations, in science, engineering or industry. In ocean engineering, floating wind turbines, oil and gas platforms, or more generally coastal and offshore structures are submitted to violent waves, which is a paramount concern for their correct dimensioning. In the chemical process industry, various scales of gas-liquid flows are encountered ranging from large bubble columns, plate columns, agitated vessels, surface aerators, jets, static mixers or micro-reactors. Their applications are generally reactive flow systems, mixing, stripping or saturation systems. Complex phenomena of turbulent hydrodynamics involving breakup and coalescence, coupled with gas-liquid mass and heat transfers, appear in such systems. Many other applications of interfacial flows can be found. Their list would be endless, but we can cite domains like inkjet printing, automotive applications (liquid films, fuel injection, aquaplaning, ...), ship maneuvering, tank sloshing, hydraulic pumps, metal casting, fire sprinklers, atomizers, etc ... The list of domains that may benefit from improved solution methods to the interface advection problem is thus extremely large. 
 
 Thanks to the increase of computing resources, highly resolved simulations gain more and more 
 interest to analyze in detail the physics of such multiphase flows. Many numerical methods 
@@ -99,8 +99,17 @@ IsoAdvector gives a sharper interface, but validation data for this new method i
 %%======================================================================
 \section{Numerical methods}
 %%======================================================================
-We consider here an unsteady, laminar and incompressible two-phase flow. The governing equations are the continuity equation for the fluid-wise constant mass density field, the Navier-Stokes 
-equations for the momentum evolution, and the incompressibility condition for the velocity field. 
+We consider here an unsteady, laminar and incompressible two-phase flow. The governing equations are the continuity and linear momentum equations. We consider an incompressible isothermal flow without mass transfer across the gas-liquid interface. The mass balance can be written as an incompressibility condition for the velocity field:
+\begin{equation}
+  \nabla \cdot \overrightarrow{U} = 0
+\end{equation}
+The Navier-Stokes equations for the momentum evolution are written as: 
+\begin{equation}
+  \frac{\partial(\rho \overrightarrow{U})}{\partial t} + 
+  \overrightarrow{\nabla} \cdot (\rho\overrightarrow{U}\overrightarrow{U}) = 
+  \overrightarrow{\nabla} \cdot \left( \mu (\nabla\overrightarrow{U}+\nabla^T\overrightarrow{U})\right)
+  - \overrightarrow{\nabla} p + \rho \overrightarrow{g} + \overrightarrow{F_{\sigma}}
+\end{equation}
 
 In the VoF method, the continuity equation is converted into an evolution equation for the volume fraction field $\alpha$, representing for each cell the fraction of its volume, which is occupied by one of the two fluids. Special care must be taken in the numerics to prevent smearing of the $\alpha$-field and at the same time keeping it bounded ($0\leq \alpha\leq 1$). In the \verb|interFoam| solver, sharpness is obtained by introducing an artificial interface compression term in the $\alpha$-equation~\cite{Weller2008}, and boundedness is ensured by employing the MULES limiter (Multidimensional Universal Limiter with Explicit Solution). More details can be found in Deshpande~\cite{Deshpande2012}.
 
@@ -186,7 +195,6 @@ MULES versus 26.78 hours for isoAdvector (so about 10\% faster).
 This paper has shown a quantitative validation of the isoAdvector method against MULES and other 
 codes. The test case used is the Hysing benchmark, both in 2D and 3D. isoAdvector has been verified to work for rising bubble simulation with similar accuracy as MULES and with a sharper interface and slightly smaller calculation times.
 This reference case will be contributed to the OpenFOAM\textsuperscript{\textregistered} tutorial wiki.
-Blabla
 
 %%======================================================================
 \section*{Acknowledgments}
