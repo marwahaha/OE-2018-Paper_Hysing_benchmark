@@ -1,0 +1,40 @@
+# git-ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+
+# Editor and misc backup files - anywhere
+*~
+.*~
+.*.swp
+*.bak
+*.bak[0-9][0-9]
+\#*\#
+
+# File-browser settings - anywhere
+.directory
+
+# Objects created by LaTeX - anywhere
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.spl
+
+# Compiled paper
+OE-2018-OFW13-L.Gamet.et.al_Bubble_benchmark.pdf
+
+# Corefiles
+core
+
+# Source packages - anywhere
+*.tar.bz2
+*.tar.gz
+*.tar.xz
+*.tar
+*.tgz
+*.gtgz
+
+# Ignore project files in the main directory
+/.cproject
+/.project
+/.dir-locals.el
