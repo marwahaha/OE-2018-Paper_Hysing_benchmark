@@ -190,6 +190,7 @@ Xeon E5-2690V3. The largest computation with
 $320 \times 640 \times 320 = 65 536 000$ cells was run on 504 cores for 29.25 hours for
 MULES versus 26.78 hours for isoAdvector (so about 10\% faster). 
 
+
 \begin{figure}[!h]
 \begin{center}
  \vspace{-1mm}
@@ -197,8 +198,37 @@ MULES versus 26.78 hours for isoAdvector (so about 10\% faster).
  \vspace{-7mm}
 \end{center}
 \caption{Configuration and boundary conditions for 2D spurious currents test case.}
-\label{fig:1}
+\label{fig:spuriousCurrents_scheme}
 \end{figure}
+
+
+
+\begin{figure}[!h]
+\begin{center}
+ \vspace{-1mm}
+ \includegraphics[width=\textwidth]{figures/HysingB_bubble_velocity_MULES.pdf}
+ \includegraphics[width=\textwidth]{figures/HysingB_bubble_velocity_isoAlpha.pdf}
+ \includegraphics[width=\textwidth]{figures/HysingB_bubble_velocity_plicRDF5.pdf}
+ \vspace{-14mm}
+\end{center}
+\caption{Time evolution of rise velocity on hexahedral grids for solvers MULES (top), isoAdvector with isoAlpha (middle) and plicRDF5 (botttom) reconstruction schemes.}
+\label{fig:HB_Struct_bubble_velocity}
+\end{figure}
+
+
+
+\begin{figure}[!h]
+\begin{center}
+ \vspace{-1mm}
+ \includegraphics[width=\textwidth]{figures/HysingB-uns_bubble_velocity_MULES.pdf}
+ \includegraphics[width=\textwidth]{figures/HysingB-uns_bubble_velocity_isoAlpha.pdf}
+ \includegraphics[width=\textwidth]{figures/HysingB-uns_bubble_velocity_plicRDF5.pdf}
+ \vspace{-14mm}
+\end{center}
+\caption{Time evolution of rise velocity on triangular grids for solvers MULES (top), isoAdvector with isoAlpha (middle) and plicRDF5 (botttom) reconstruction schemes.}
+\label{fig:HB_Uns_bubble_velocity}
+\end{figure}
+
 
 %%======================================================================
 \section{\small Conclusion}
