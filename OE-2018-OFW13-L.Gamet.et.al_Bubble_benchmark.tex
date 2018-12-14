@@ -232,25 +232,58 @@ MULES versus 26.78 hours for isoAdvector (so about 10\% faster).
 
 \begin{figure}[!h]
 \begin{center}
- \vspace{-1mm}
- \includegraphics[width=0.31\textwidth]{figures/bubble_shape_t=3_TP2D.pdf}
- \hspace{2mm}
- \includegraphics[width=0.31\textwidth]{figures/bubble_shape_t=3_FreeLIFE.pdf}
- \hspace{2mm}
- \includegraphics[width=0.31\textwidth]{figures/bubble_shape_t=3_MoonNMD.pdf}
- 
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_TP2D.pdf}
+ \hspace{4mm}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_FreeLIFE.pdf}
+
  \vspace{2mm}
- \includegraphics[width=0.31\textwidth]{figures/bubble_shape_t=3_Basilisk.pdf}
- \hspace{2mm}
- \includegraphics[width=0.31\textwidth]{figures/bubble_shape_t=3_TP2D.pdf}
- \hspace{2mm}
- \includegraphics[width=0.31\textwidth]{figures/bubble_shape_t=3_TP2D.pdf}
+
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_MoonNMD.pdf}
+ \hspace{4mm}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_Basilisk.pdf}
  
- \vspace{-2mm}
+ \vspace{-6mm}
 \end{center}
-\caption{Bubble shape at time t=3}
-\label{fig:HB_bubble_shape_3}
+\caption{Bubble shape at time t=3 for TP2D, FreeLIFE, MoonNMD and Basilisk solvers.}
+\label{fig:HB_bubble_shape_3_others}
 \end{figure}
+
+
+\begin{figure}[!h]
+\begin{center}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_MULES-struct.pdf}
+ \hspace{2mm}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_MULES-uns.pdf}
+ \vspace{-6mm}
+\end{center}
+\caption{Bubble shape at time t=3 for MULES. Left: structured grids, Right: unstructured.}
+\label{fig:HB_bubble_shape_3_MULES}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_isoAlpha-struct.pdf}
+ \hspace{2mm}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_isoAlpha-uns.pdf}
+ \vspace{-6mm}
+\end{center}
+\caption{Bubble shape at time t=3 for isoAdvector iso-Alpha. Left: structured grids, Right: unstructured.}
+\label{fig:HB_bubble_shape_3_isoAlpha}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_plicRDF5-struct.pdf}
+ \hspace{2mm}
+ \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_plicRDF5-uns.pdf}
+ \vspace{-6mm}
+\end{center}
+\caption{Bubble shape at time t=3 for isoAdvector plicRDF-5. Left: structured grids, Right: unstructured.}
+\label{fig:HB_bubble_shape_3_plicRDF5}
+\end{figure}
+
+
+
 
 %%======================================================================
 \section{\small Conclusion}
