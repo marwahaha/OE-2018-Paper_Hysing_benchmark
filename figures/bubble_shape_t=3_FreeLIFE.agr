@@ -63,14 +63,14 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Fri Dec 14 15:15:27 2018"
+@timestamp def "Mon Dec 17 09:37:36 2018"
 @with line
 @    line on
 @    line loctype view
 @    line 0.765, 0.34, 0.855, 0.4
 @    line linewidth 3.0
 @    line linestyle 1
-@    line color 2
+@    line color 4
 @    line arrow 2
 @    line arrow type 0
 @    line arrow length 2.000000
@@ -318,9 +318,9 @@
 @    s1 type xy
 @    s1 symbol 0
 @    s1 symbol size 0.080000
-@    s1 symbol color 2
+@    s1 symbol color 4
 @    s1 symbol pattern 1
-@    s1 symbol fill color 2
+@    s1 symbol fill color 4
 @    s1 symbol fill pattern 1
 @    s1 symbol linewidth 1.0
 @    s1 symbol linestyle 1
@@ -330,7 +330,7 @@
 @    s1 line type 1
 @    s1 line linestyle 3
 @    s1 line linewidth 1.5
-@    s1 line color 2
+@    s1 line color 4
 @    s1 line pattern 1
 @    s1 baseline type 0
 @    s1 baseline off
@@ -352,7 +352,7 @@
 @    s1 avalue offset 0.000000 , 0.000000
 @    s1 errorbar on
 @    s1 errorbar place both
-@    s1 errorbar color 2
+@    s1 errorbar color 4
 @    s1 errorbar pattern 1
 @    s1 errorbar size 1.000000
 @    s1 errorbar linewidth 1.0
@@ -660,7 +660,7 @@
 @    frame type 0
 @    frame linestyle 3
 @    frame linewidth 1.5
-@    frame color 2
+@    frame color 4
 @    frame pattern 1
 @    frame background color 0
 @    frame background pattern 0

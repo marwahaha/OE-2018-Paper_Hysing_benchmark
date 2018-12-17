@@ -63,14 +63,14 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Fri Dec 14 16:24:56 2018"
+@timestamp def "Mon Dec 17 09:43:49 2018"
 @with line
 @    line on
 @    line loctype view
 @    line 0.765, 0.34, 0.855, 0.4
 @    line linewidth 3.0
 @    line linestyle 1
-@    line color 2
+@    line color 4
 @    line arrow 2
 @    line arrow type 0
 @    line arrow length 2.000000
@@ -269,9 +269,9 @@
 @    s0 type xy
 @    s0 symbol 0
 @    s0 symbol size 0.080000
-@    s0 symbol color 2
+@    s0 symbol color 4
 @    s0 symbol pattern 1
-@    s0 symbol fill color 2
+@    s0 symbol fill color 4
 @    s0 symbol fill pattern 1
 @    s0 symbol linewidth 1.0
 @    s0 symbol linestyle 1
@@ -281,7 +281,7 @@
 @    s0 line type 1
 @    s0 line linestyle 3
 @    s0 line linewidth 1.5
-@    s0 line color 2
+@    s0 line color 4
 @    s0 line pattern 1
 @    s0 baseline type 0
 @    s0 baseline off
@@ -303,7 +303,7 @@
 @    s0 avalue offset 0.000000 , 0.000000
 @    s0 errorbar on
 @    s0 errorbar place both
-@    s0 errorbar color 2
+@    s0 errorbar color 4
 @    s0 errorbar pattern 1
 @    s0 errorbar size 1.000000
 @    s0 errorbar linewidth 1.0
@@ -514,9 +514,9 @@
 @    s5 type xy
 @    s5 symbol 0
 @    s5 symbol size 0.080000
-@    s5 symbol color 3
+@    s5 symbol color 2
 @    s5 symbol pattern 1
-@    s5 symbol fill color 3
+@    s5 symbol fill color 2
 @    s5 symbol fill pattern 1
 @    s5 symbol linewidth 1.0
 @    s5 symbol linestyle 1
@@ -526,7 +526,7 @@
 @    s5 line type 1
 @    s5 line linestyle 1
 @    s5 line linewidth 1.5
-@    s5 line color 3
+@    s5 line color 2
 @    s5 line pattern 1
 @    s5 baseline type 0
 @    s5 baseline off
@@ -548,7 +548,7 @@
 @    s5 avalue offset 0.000000 , 0.000000
 @    s5 errorbar on
 @    s5 errorbar place both
-@    s5 errorbar color 3
+@    s5 errorbar color 2
 @    s5 errorbar pattern 1
 @    s5 errorbar size 1.000000
 @    s5 errorbar linewidth 1.0
@@ -563,9 +563,9 @@
 @    s6 type xy
 @    s6 symbol 0
 @    s6 symbol size 0.080000
-@    s6 symbol color 3
+@    s6 symbol color 2
 @    s6 symbol pattern 1
-@    s6 symbol fill color 3
+@    s6 symbol fill color 2
 @    s6 symbol fill pattern 1
 @    s6 symbol linewidth 1.0
 @    s6 symbol linestyle 1
@@ -575,7 +575,7 @@
 @    s6 line type 1
 @    s6 line linestyle 1
 @    s6 line linewidth 1.5
-@    s6 line color 3
+@    s6 line color 2
 @    s6 line pattern 1
 @    s6 baseline type 0
 @    s6 baseline off
@@ -597,7 +597,7 @@
 @    s6 avalue offset 0.000000 , 0.000000
 @    s6 errorbar on
 @    s6 errorbar place both
-@    s6 errorbar color 3
+@    s6 errorbar color 2
 @    s6 errorbar pattern 1
 @    s6 errorbar size 1.000000
 @    s6 errorbar linewidth 1.0
@@ -612,9 +612,9 @@
 @    s7 type xy
 @    s7 symbol 0
 @    s7 symbol size 0.080000
-@    s7 symbol color 3
+@    s7 symbol color 2
 @    s7 symbol pattern 1
-@    s7 symbol fill color 3
+@    s7 symbol fill color 2
 @    s7 symbol fill pattern 1
 @    s7 symbol linewidth 1.0
 @    s7 symbol linestyle 1
@@ -624,7 +624,7 @@
 @    s7 line type 1
 @    s7 line linestyle 1
 @    s7 line linewidth 1.5
-@    s7 line color 3
+@    s7 line color 2
 @    s7 line pattern 1
 @    s7 baseline type 0
 @    s7 baseline off
@@ -646,7 +646,7 @@
 @    s7 avalue offset 0.000000 , 0.000000
 @    s7 errorbar on
 @    s7 errorbar place both
-@    s7 errorbar color 3
+@    s7 errorbar color 2
 @    s7 errorbar pattern 1
 @    s7 errorbar size 1.000000
 @    s7 errorbar linewidth 1.0
@@ -661,9 +661,9 @@
 @    s8 type xy
 @    s8 symbol 0
 @    s8 symbol size 0.080000
-@    s8 symbol color 3
+@    s8 symbol color 2
 @    s8 symbol pattern 1
-@    s8 symbol fill color 3
+@    s8 symbol fill color 2
 @    s8 symbol fill pattern 1
 @    s8 symbol linewidth 1.0
 @    s8 symbol linestyle 1
@@ -673,7 +673,7 @@
 @    s8 line type 1
 @    s8 line linestyle 1
 @    s8 line linewidth 1.5
-@    s8 line color 3
+@    s8 line color 2
 @    s8 line pattern 1
 @    s8 baseline type 0
 @    s8 baseline off
@@ -695,7 +695,7 @@
 @    s8 avalue offset 0.000000 , 0.000000
 @    s8 errorbar on
 @    s8 errorbar place both
-@    s8 errorbar color 3
+@    s8 errorbar color 2
 @    s8 errorbar pattern 1
 @    s8 errorbar size 1.000000
 @    s8 errorbar linewidth 1.0
@@ -710,9 +710,9 @@
 @    s9 type xy
 @    s9 symbol 0
 @    s9 symbol size 0.080000
-@    s9 symbol color 3
+@    s9 symbol color 2
 @    s9 symbol pattern 1
-@    s9 symbol fill color 3
+@    s9 symbol fill color 2
 @    s9 symbol fill pattern 1
 @    s9 symbol linewidth 1.0
 @    s9 symbol linestyle 1
@@ -722,7 +722,7 @@
 @    s9 line type 1
 @    s9 line linestyle 1
 @    s9 line linewidth 1.5
-@    s9 line color 3
+@    s9 line color 2
 @    s9 line pattern 1
 @    s9 baseline type 0
 @    s9 baseline off
@@ -744,7 +744,7 @@
 @    s9 avalue offset 0.000000 , 0.000000
 @    s9 errorbar on
 @    s9 errorbar place both
-@    s9 errorbar color 3
+@    s9 errorbar color 2
 @    s9 errorbar pattern 1
 @    s9 errorbar size 1.000000
 @    s9 errorbar linewidth 1.0
@@ -759,9 +759,9 @@
 @    s10 type xy
 @    s10 symbol 0
 @    s10 symbol size 0.080000
-@    s10 symbol color 3
+@    s10 symbol color 2
 @    s10 symbol pattern 1
-@    s10 symbol fill color 3
+@    s10 symbol fill color 2
 @    s10 symbol fill pattern 1
 @    s10 symbol linewidth 1.0
 @    s10 symbol linestyle 1
@@ -771,7 +771,7 @@
 @    s10 line type 1
 @    s10 line linestyle 1
 @    s10 line linewidth 1.5
-@    s10 line color 3
+@    s10 line color 2
 @    s10 line pattern 1
 @    s10 baseline type 0
 @    s10 baseline off
@@ -793,7 +793,7 @@
 @    s10 avalue offset 0.000000 , 0.000000
 @    s10 errorbar on
 @    s10 errorbar place both
-@    s10 errorbar color 3
+@    s10 errorbar color 2
 @    s10 errorbar pattern 1
 @    s10 errorbar size 1.000000
 @    s10 errorbar linewidth 1.0
@@ -808,9 +808,9 @@
 @    s11 type xy
 @    s11 symbol 0
 @    s11 symbol size 0.080000
-@    s11 symbol color 3
+@    s11 symbol color 2
 @    s11 symbol pattern 1
-@    s11 symbol fill color 3
+@    s11 symbol fill color 2
 @    s11 symbol fill pattern 1
 @    s11 symbol linewidth 1.0
 @    s11 symbol linestyle 1
@@ -820,7 +820,7 @@
 @    s11 line type 1
 @    s11 line linestyle 1
 @    s11 line linewidth 1.5
-@    s11 line color 3
+@    s11 line color 2
 @    s11 line pattern 1
 @    s11 baseline type 0
 @    s11 baseline off
@@ -842,7 +842,7 @@
 @    s11 avalue offset 0.000000 , 0.000000
 @    s11 errorbar on
 @    s11 errorbar place both
-@    s11 errorbar color 3
+@    s11 errorbar color 2
 @    s11 errorbar pattern 1
 @    s11 errorbar size 1.000000
 @    s11 errorbar linewidth 1.0
@@ -857,9 +857,9 @@
 @    s12 type xy
 @    s12 symbol 0
 @    s12 symbol size 0.080000
-@    s12 symbol color 3
+@    s12 symbol color 2
 @    s12 symbol pattern 1
-@    s12 symbol fill color 3
+@    s12 symbol fill color 2
 @    s12 symbol fill pattern 1
 @    s12 symbol linewidth 1.0
 @    s12 symbol linestyle 1
@@ -869,7 +869,7 @@
 @    s12 line type 1
 @    s12 line linestyle 1
 @    s12 line linewidth 1.5
-@    s12 line color 3
+@    s12 line color 2
 @    s12 line pattern 1
 @    s12 baseline type 0
 @    s12 baseline off
@@ -891,7 +891,7 @@
 @    s12 avalue offset 0.000000 , 0.000000
 @    s12 errorbar on
 @    s12 errorbar place both
-@    s12 errorbar color 3
+@    s12 errorbar color 2
 @    s12 errorbar pattern 1
 @    s12 errorbar size 1.000000
 @    s12 errorbar linewidth 1.0
@@ -906,9 +906,9 @@
 @    s13 type xy
 @    s13 symbol 0
 @    s13 symbol size 0.080000
-@    s13 symbol color 3
+@    s13 symbol color 2
 @    s13 symbol pattern 1
-@    s13 symbol fill color 3
+@    s13 symbol fill color 2
 @    s13 symbol fill pattern 1
 @    s13 symbol linewidth 1.0
 @    s13 symbol linestyle 1
@@ -918,7 +918,7 @@
 @    s13 line type 1
 @    s13 line linestyle 1
 @    s13 line linewidth 1.5
-@    s13 line color 3
+@    s13 line color 2
 @    s13 line pattern 1
 @    s13 baseline type 0
 @    s13 baseline off
@@ -940,7 +940,7 @@
 @    s13 avalue offset 0.000000 , 0.000000
 @    s13 errorbar on
 @    s13 errorbar place both
-@    s13 errorbar color 3
+@    s13 errorbar color 2
 @    s13 errorbar pattern 1
 @    s13 errorbar size 1.000000
 @    s13 errorbar linewidth 1.0
@@ -955,9 +955,9 @@
 @    s14 type xy
 @    s14 symbol 0
 @    s14 symbol size 0.080000
-@    s14 symbol color 3
+@    s14 symbol color 2
 @    s14 symbol pattern 1
-@    s14 symbol fill color 3
+@    s14 symbol fill color 2
 @    s14 symbol fill pattern 1
 @    s14 symbol linewidth 1.0
 @    s14 symbol linestyle 1
@@ -967,7 +967,7 @@
 @    s14 line type 1
 @    s14 line linestyle 1
 @    s14 line linewidth 1.5
-@    s14 line color 3
+@    s14 line color 2
 @    s14 line pattern 1
 @    s14 baseline type 0
 @    s14 baseline off
@@ -989,7 +989,7 @@
 @    s14 avalue offset 0.000000 , 0.000000
 @    s14 errorbar on
 @    s14 errorbar place both
-@    s14 errorbar color 3
+@    s14 errorbar color 2
 @    s14 errorbar pattern 1
 @    s14 errorbar size 1.000000
 @    s14 errorbar linewidth 1.0
@@ -1004,9 +1004,9 @@
 @    s15 type xy
 @    s15 symbol 0
 @    s15 symbol size 0.080000
-@    s15 symbol color 3
+@    s15 symbol color 2
 @    s15 symbol pattern 1
-@    s15 symbol fill color 3
+@    s15 symbol fill color 2
 @    s15 symbol fill pattern 1
 @    s15 symbol linewidth 1.0
 @    s15 symbol linestyle 1
@@ -1016,7 +1016,7 @@
 @    s15 line type 1
 @    s15 line linestyle 1
 @    s15 line linewidth 1.5
-@    s15 line color 3
+@    s15 line color 2
 @    s15 line pattern 1
 @    s15 baseline type 0
 @    s15 baseline off
@@ -1038,7 +1038,7 @@
 @    s15 avalue offset 0.000000 , 0.000000
 @    s15 errorbar on
 @    s15 errorbar place both
-@    s15 errorbar color 3
+@    s15 errorbar color 2
 @    s15 errorbar pattern 1
 @    s15 errorbar size 1.000000
 @    s15 errorbar linewidth 1.0
@@ -1199,7 +1199,7 @@
 @    frame type 0
 @    frame linestyle 3
 @    frame linewidth 1.5
-@    frame color 2
+@    frame color 4
 @    frame pattern 1
 @    frame background color 0
 @    frame background pattern 0
@@ -1403,9 +1403,9 @@
 @    s4 type xy
 @    s4 symbol 0
 @    s4 symbol size 0.050000
-@    s4 symbol color 3
+@    s4 symbol color 2
 @    s4 symbol pattern 1
-@    s4 symbol fill color 3
+@    s4 symbol fill color 2
 @    s4 symbol fill pattern 1
 @    s4 symbol linewidth 1.0
 @    s4 symbol linestyle 1
@@ -1415,7 +1415,7 @@
 @    s4 line type 1
 @    s4 line linestyle 1
 @    s4 line linewidth 1.5
-@    s4 line color 3
+@    s4 line color 2
 @    s4 line pattern 1
 @    s4 baseline type 0
 @    s4 baseline off
@@ -1437,7 +1437,7 @@
 @    s4 avalue offset 0.000000 , 0.000000
 @    s4 errorbar on
 @    s4 errorbar place both
-@    s4 errorbar color 3
+@    s4 errorbar color 2
 @    s4 errorbar pattern 1
 @    s4 errorbar size 1.000000
 @    s4 errorbar linewidth 1.0
@@ -1452,9 +1452,9 @@
 @    s5 type xy
 @    s5 symbol 0
 @    s5 symbol size 0.050000
-@    s5 symbol color 3
+@    s5 symbol color 2
 @    s5 symbol pattern 1
-@    s5 symbol fill color 3
+@    s5 symbol fill color 2
 @    s5 symbol fill pattern 1
 @    s5 symbol linewidth 1.0
 @    s5 symbol linestyle 1
@@ -1464,7 +1464,7 @@
 @    s5 line type 1
 @    s5 line linestyle 1
 @    s5 line linewidth 1.5
-@    s5 line color 3
+@    s5 line color 2
 @    s5 line pattern 1
 @    s5 baseline type 0
 @    s5 baseline off
@@ -1486,7 +1486,7 @@
 @    s5 avalue offset 0.000000 , 0.000000
 @    s5 errorbar on
 @    s5 errorbar place both
-@    s5 errorbar color 3
+@    s5 errorbar color 2
 @    s5 errorbar pattern 1
 @    s5 errorbar size 1.000000
 @    s5 errorbar linewidth 1.0
@@ -1501,9 +1501,9 @@
 @    s6 type xy
 @    s6 symbol 0
 @    s6 symbol size 0.050000
-@    s6 symbol color 3
+@    s6 symbol color 2
 @    s6 symbol pattern 1
-@    s6 symbol fill color 3
+@    s6 symbol fill color 2
 @    s6 symbol fill pattern 1
 @    s6 symbol linewidth 1.0
 @    s6 symbol linestyle 1
@@ -1513,7 +1513,7 @@
 @    s6 line type 1
 @    s6 line linestyle 1
 @    s6 line linewidth 1.5
-@    s6 line color 3
+@    s6 line color 2
 @    s6 line pattern 1
 @    s6 baseline type 0
 @    s6 baseline off
@@ -1535,7 +1535,7 @@
 @    s6 avalue offset 0.000000 , 0.000000
 @    s6 errorbar on
 @    s6 errorbar place both
-@    s6 errorbar color 3
+@    s6 errorbar color 2
 @    s6 errorbar pattern 1
 @    s6 errorbar size 1.000000
 @    s6 errorbar linewidth 1.0
@@ -1550,9 +1550,9 @@
 @    s7 type xy
 @    s7 symbol 0
 @    s7 symbol size 0.050000
-@    s7 symbol color 3
+@    s7 symbol color 2
 @    s7 symbol pattern 1
-@    s7 symbol fill color 3
+@    s7 symbol fill color 2
 @    s7 symbol fill pattern 1
 @    s7 symbol linewidth 1.0
 @    s7 symbol linestyle 1
@@ -1562,7 +1562,7 @@
 @    s7 line type 1
 @    s7 line linestyle 1
 @    s7 line linewidth 1.5
-@    s7 line color 3
+@    s7 line color 2
 @    s7 line pattern 1
 @    s7 baseline type 0
 @    s7 baseline off
@@ -1584,7 +1584,7 @@
 @    s7 avalue offset 0.000000 , 0.000000
 @    s7 errorbar on
 @    s7 errorbar place both
-@    s7 errorbar color 3
+@    s7 errorbar color 2
 @    s7 errorbar pattern 1
 @    s7 errorbar size 1.000000
 @    s7 errorbar linewidth 1.0
@@ -1599,9 +1599,9 @@
 @    s8 type xy
 @    s8 symbol 0
 @    s8 symbol size 0.050000
-@    s8 symbol color 3
+@    s8 symbol color 2
 @    s8 symbol pattern 1
-@    s8 symbol fill color 3
+@    s8 symbol fill color 2
 @    s8 symbol fill pattern 1
 @    s8 symbol linewidth 1.0
 @    s8 symbol linestyle 1
@@ -1611,7 +1611,7 @@
 @    s8 line type 1
 @    s8 line linestyle 1
 @    s8 line linewidth 1.5
-@    s8 line color 3
+@    s8 line color 2
 @    s8 line pattern 1
 @    s8 baseline type 0
 @    s8 baseline off
@@ -1633,7 +1633,7 @@
 @    s8 avalue offset 0.000000 , 0.000000
 @    s8 errorbar on
 @    s8 errorbar place both
-@    s8 errorbar color 3
+@    s8 errorbar color 2
 @    s8 errorbar pattern 1
 @    s8 errorbar size 1.000000
 @    s8 errorbar linewidth 1.0
@@ -1648,9 +1648,9 @@
 @    s9 type xy
 @    s9 symbol 0
 @    s9 symbol size 0.050000
-@    s9 symbol color 3
+@    s9 symbol color 2
 @    s9 symbol pattern 1
-@    s9 symbol fill color 3
+@    s9 symbol fill color 2
 @    s9 symbol fill pattern 1
 @    s9 symbol linewidth 1.0
 @    s9 symbol linestyle 1
@@ -1660,7 +1660,7 @@
 @    s9 line type 1
 @    s9 line linestyle 1
 @    s9 line linewidth 1.5
-@    s9 line color 3
+@    s9 line color 2
 @    s9 line pattern 1
 @    s9 baseline type 0
 @    s9 baseline off
@@ -1682,7 +1682,7 @@
 @    s9 avalue offset 0.000000 , 0.000000
 @    s9 errorbar on
 @    s9 errorbar place both
-@    s9 errorbar color 3
+@    s9 errorbar color 2
 @    s9 errorbar pattern 1
 @    s9 errorbar size 1.000000
 @    s9 errorbar linewidth 1.0
@@ -1697,9 +1697,9 @@
 @    s10 type xy
 @    s10 symbol 0
 @    s10 symbol size 0.050000
-@    s10 symbol color 3
+@    s10 symbol color 2
 @    s10 symbol pattern 1
-@    s10 symbol fill color 3
+@    s10 symbol fill color 2
 @    s10 symbol fill pattern 1
 @    s10 symbol linewidth 1.0
 @    s10 symbol linestyle 1
@@ -1709,7 +1709,7 @@
 @    s10 line type 1
 @    s10 line linestyle 1
 @    s10 line linewidth 1.5
-@    s10 line color 3
+@    s10 line color 2
 @    s10 line pattern 1
 @    s10 baseline type 0
 @    s10 baseline off
@@ -1731,7 +1731,7 @@
 @    s10 avalue offset 0.000000 , 0.000000
 @    s10 errorbar on
 @    s10 errorbar place both
-@    s10 errorbar color 3
+@    s10 errorbar color 2
 @    s10 errorbar pattern 1
 @    s10 errorbar size 1.000000
 @    s10 errorbar linewidth 1.0
@@ -1746,9 +1746,9 @@
 @    s11 type xy
 @    s11 symbol 0
 @    s11 symbol size 0.050000
-@    s11 symbol color 3
+@    s11 symbol color 2
 @    s11 symbol pattern 1
-@    s11 symbol fill color 3
+@    s11 symbol fill color 2
 @    s11 symbol fill pattern 1
 @    s11 symbol linewidth 1.0
 @    s11 symbol linestyle 1
@@ -1758,7 +1758,7 @@
 @    s11 line type 1
 @    s11 line linestyle 1
 @    s11 line linewidth 1.5
-@    s11 line color 3
+@    s11 line color 2
 @    s11 line pattern 1
 @    s11 baseline type 0
 @    s11 baseline off
@@ -1780,7 +1780,7 @@
 @    s11 avalue offset 0.000000 , 0.000000
 @    s11 errorbar on
 @    s11 errorbar place both
-@    s11 errorbar color 3
+@    s11 errorbar color 2
 @    s11 errorbar pattern 1
 @    s11 errorbar size 1.000000
 @    s11 errorbar linewidth 1.0
@@ -1795,9 +1795,9 @@
 @    s12 type xy
 @    s12 symbol 0
 @    s12 symbol size 0.050000
-@    s12 symbol color 3
+@    s12 symbol color 2
 @    s12 symbol pattern 1
-@    s12 symbol fill color 3
+@    s12 symbol fill color 2
 @    s12 symbol fill pattern 1
 @    s12 symbol linewidth 1.0
 @    s12 symbol linestyle 1
@@ -1807,7 +1807,7 @@
 @    s12 line type 1
 @    s12 line linestyle 1
 @    s12 line linewidth 1.5
-@    s12 line color 3
+@    s12 line color 2
 @    s12 line pattern 1
 @    s12 baseline type 0
 @    s12 baseline off
@@ -1829,7 +1829,7 @@
 @    s12 avalue offset 0.000000 , 0.000000
 @    s12 errorbar on
 @    s12 errorbar place both
-@    s12 errorbar color 3
+@    s12 errorbar color 2
 @    s12 errorbar pattern 1
 @    s12 errorbar size 1.000000
 @    s12 errorbar linewidth 1.0
@@ -1844,9 +1844,9 @@
 @    s13 type xy
 @    s13 symbol 0
 @    s13 symbol size 0.050000
-@    s13 symbol color 3
+@    s13 symbol color 2
 @    s13 symbol pattern 1
-@    s13 symbol fill color 3
+@    s13 symbol fill color 2
 @    s13 symbol fill pattern 1
 @    s13 symbol linewidth 1.0
 @    s13 symbol linestyle 1
@@ -1856,7 +1856,7 @@
 @    s13 line type 1
 @    s13 line linestyle 1
 @    s13 line linewidth 1.5
-@    s13 line color 3
+@    s13 line color 2
 @    s13 line pattern 1
 @    s13 baseline type 0
 @    s13 baseline off
@@ -1878,7 +1878,7 @@
 @    s13 avalue offset 0.000000 , 0.000000
 @    s13 errorbar on
 @    s13 errorbar place both
-@    s13 errorbar color 3
+@    s13 errorbar color 2
 @    s13 errorbar pattern 1
 @    s13 errorbar size 1.000000
 @    s13 errorbar linewidth 1.0
@@ -1893,9 +1893,9 @@
 @    s14 type xy
 @    s14 symbol 0
 @    s14 symbol size 0.050000
-@    s14 symbol color 3
+@    s14 symbol color 2
 @    s14 symbol pattern 1
-@    s14 symbol fill color 3
+@    s14 symbol fill color 2
 @    s14 symbol fill pattern 1
 @    s14 symbol linewidth 1.0
 @    s14 symbol linestyle 1
@@ -1905,7 +1905,7 @@
 @    s14 line type 1
 @    s14 line linestyle 1
 @    s14 line linewidth 1.5
-@    s14 line color 3
+@    s14 line color 2
 @    s14 line pattern 1
 @    s14 baseline type 0
 @    s14 baseline off
@@ -1927,7 +1927,7 @@
 @    s14 avalue offset 0.000000 , 0.000000
 @    s14 errorbar on
 @    s14 errorbar place both
-@    s14 errorbar color 3
+@    s14 errorbar color 2
 @    s14 errorbar pattern 1
 @    s14 errorbar size 1.000000
 @    s14 errorbar linewidth 1.0
