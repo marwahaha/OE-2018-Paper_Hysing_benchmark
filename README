@@ -1,0 +1,87 @@
+TEMPORARY FILE
+
+
+Single bubble rising benchmark
+==============================
+Definition of test case
+-----------------------
+benchmark_scheme.pdf
+
+Results
+-------
+HysingB_bubble_velocity_isoAlpha.pdf
+HysingB_bubble_velocity_MULES.pdf
+HysingB_bubble_velocity_plicRDF5.pdf
+
+HysingB-uns_bubble_velocity_isoAlpha.pdf
+HysingB-uns_bubble_velocity_MULES.pdf
+HysingB-uns_bubble_velocity_plicRDF5.pdf
+
+bubble_shape_t=3_FreeLIFE.pdf
+bubble_shape_t=3_TP2D.pdf
+bubble_shape_t=3_Basilisk.pdf
+bubble_shape_t=3_MoonNMD.pdf
+bubble_shape_t=3_MULES-struct.pdf
+bubble_shape_t=3_MULES-uns.pdf
+bubble_shape_t=3_isoAlpha-struct.pdf
+bubble_shape_t=3_isoAlpha-uns.pdf
+bubble_shape_t=3_plicRDF5-struct.pdf
+bubble_shape_t=3_plicRDF5-uns.pdf
+
+HysingB_bubble_circularity_160x320.pdf
+HysingB_bubble_circularity_640x1280.pdf
+
+bubble_shape_t=3_compareOFMULES_Fineststruct.vs.uns_grids.pdf
+bubble_shape_t=3_compareOFisoAlpha_Fineststruct.vs.uns_grids.pdf
+bubble_shape_t=3_compareOFplicRDF5_Fineststruct.vs.uns_grids.pdf
+
+bubble_shape_time_evol_uns080_MULES.vs.plicRDF5.pdf
+bubble_shape_time_evol_uns320_MULES.vs.plicRDF5.pdf
+
+
+
+Single bubble rising benchmark
+==============================
+Definition of test case
+-----------------------
+spuriousCurrents_scheme.pdf
+
+Results
+-------
+spuriousCurrents_MULES.vs.isoAlpha.vs.plicRDF-5-scaleX80_time=1.5_080x160.png
+
+spuriousCurrents_MaxmagU_compareOF_20.80.320_struct.pdf
+spuriousCurrents_MaxmagU_compareOF_20.80.320_uns.pdf
+
+spuriousCurrents_bubble_error_radius_struct.pdf
+spuriousCurrents_bubble_error_radius_uns.pdf
+
+spuriousCurrents_pressure_drop_t=3_160x320.pdf
+
+
+
+
+
+ABANDONNED (from OFW13 paper)
+==============================
+bubble_shape2D_t=3.pdf
+bubble_shape2D_time_evol_160.pdf
+bubble_sphericity3D.pdf
+bubble_velocity3D.pdf
+
+
+ABANDONNED (because too much curves)
+====================================
+bubble_shape_t=3_compareOF_uns.vs.struct-080.pdf
+bubble_shape_t=3_compareOF_uns.vs.struct-320.pdf
+
+bubble_shape_time_evol_struct080_MULES.vs.plicRDF5.pdf
+bubble_shape_time_evol_struct320_MULES.vs.plicRDF5.pdf
+
+HysingB-struct.vs.uns_bubble_velocity_plicRDF5.agr
+
+spuriousCurrents_bubble_shape_t=3_struct.agr
+
+spuriousCurrents_MaxCmptU_compareOF_20.80.320_struct.agr
+spuriousCurrents_MaxCmptU_compareOF_20.80.320_uns.agr
+

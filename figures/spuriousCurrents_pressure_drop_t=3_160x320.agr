@@ -63,7 +63,7 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Dec 17 15:46:21 2018"
+@timestamp def "Mon Dec 17 15:58:31 2018"
 @with string
 @    string on
 @    string loctype view
@@ -133,7 +133,7 @@
 @    world -0.5, -0.5, 0.5, 9
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 0.100000, 0.100000, 1.030000, 0.800000
+@    view 0.090000, 0.100000, 1.020000, 0.800000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -192,7 +192,7 @@
 @    xaxis  ticklabel start 0.000000
 @    xaxis  ticklabel stop type auto
 @    xaxis  ticklabel stop 0.000000
-@    xaxis  ticklabel char size 1.000000
+@    xaxis  ticklabel char size 1.500000
 @    xaxis  ticklabel font 0
 @    xaxis  ticklabel color 1
 @    xaxis  tick place both
@@ -483,7 +483,7 @@
 @    world -0.5, -0.5, 0.5, 9
 @    stack world 0, 0, 0, 0
 @    znorm 1
-@    view 1.080000, 0.100000, 2.010000, 0.800000
+@    view 1.090000, 0.100000, 2.020000, 0.800000
 @    title ""
 @    title font 0
 @    title size 1.500000
@@ -542,7 +542,7 @@
 @    xaxis  ticklabel start 0.000000
 @    xaxis  ticklabel stop type auto
 @    xaxis  ticklabel stop 0.000000
-@    xaxis  ticklabel char size 1.000000
+@    xaxis  ticklabel char size 1.500000
 @    xaxis  ticklabel font 0
 @    xaxis  ticklabel color 1
 @    xaxis  tick place both
