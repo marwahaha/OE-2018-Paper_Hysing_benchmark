@@ -99,7 +99,7 @@ More recently, Scheufler and Roenby~\cite{Scheufler2018} have introduced a novel
 IsoAdvector gives a sharper interface, but validation data for this new method is still sparse, especially for surface tension dominated flows. Following the single rising bubble benchmarks~\cite{Hysing2009,Adelsberger2014}, the objective of this paper is to perform quantitative comparisons of the isoAdvector method with the benchmark data. Furthermore, the isoAdvector results are compared with results from OpenFOAM's original interfacial flow solver, \verb+interFoam+~\cite{Weller2008}.
 
 %%======================================================================
-\section{Numerical methods}
+\section{Numerical methods}\label{sec_nummethods}
 %%======================================================================
 We consider here an unsteady, laminar, isothermal and incompressible two-phase flow. The flow is supposed without mass transfer across the gas-liquid interface. The governing equations are the continuity and linear momentum equations. The incompressibility condition is written as a divergence free equation for the velocity field:
 \begin{equation}
@@ -117,7 +117,7 @@ The Navier-Stokes equations for the momentum evolution are written as:
 where $p$, $\rho$, $\mu$ are respectively the pressure, density and viscosity of the mixture. $\overrightarrow{U}$ denotes the velocity of the mixture. $\overrightarrow{g}$ is the gravity. $\overrightarrow{F_{\sigma}}$ represents the surface tension force, which is expressed as a source term in the momentum equation. 
 
 In the VoF method, the continuity equation is converted into an convection diffusion equation for the volume fraction field $\alpha$, representing for each cell the fraction of its volume, which is occupied by one of the two fluids. Mixture quantities are defined as volume fraction weighted sums. If $\alpha$ denotes the first phase volume fraction, $\rho_1$ the first phase density, $\rho_2$ the second phase density, then the mixture density is defined as $\rho = \alpha\rho_1 + (1-\alpha)\rho_2$. All other mixture quantities are defined similarly. 
-Special care must be taken in the numerics to prevent smearing of the $\alpha$-field and at the same time keeping it bounded ($0\leq \alpha\leq 1$). In the \verb|interFoam| solver, sharpness is obtained by introducing an artificial interface compression term in the $\alpha$-equation~\cite{Weller2008}, and boundedness is ensured by employing the MULES limiter (Multidimensional Universal Limiter with Explicit Solution). More details can be found in Deshpande~\cite{Deshpande2012}.
+Special care must be taken in the numerics to prevent smearing of the $\alpha$-field and at the same time keeping it bounded ($0\leq \alpha\leq 1$). In the \verb+interFoam+ solver, sharpness is obtained by introducing an artificial interface compression term in the $\alpha$-equation~\cite{Weller2008}, and boundedness is ensured by employing the MULES limiter (Multidimensional Universal Limiter with Explicit Solution). More details can be found in Deshpande~\cite{Deshpande2012}. In the following, the  \verb+interFoam+ solver will be used for comparisons and will be referenced as MULES.
 
 The solver \verb+interFoam+ has been widely used and validated~\cite{MARSCHALL2012,RAEINI2012,HOANG2013,BILGER2017}, but under some conditions the described method may fail in keeping the interface sufficiently sharp. Furthermore, the heuristic nature of the added compression term can lead to inaccurate interface advection and undesirable features such as unphysical ripples on the interface \cite{roenby_new_2017,roenby_isoadvector:_2018}. This motivated the development of the isoAdvector geometric VoF method, which was first presented by Roenby et al.~\cite{Roenby160405}. In the latter reference, it was tested with a variety of pure advection cases yielding very good results in terms of volume conservation, interface sharpness, boundedness and shape preservation. 
 With recent improvements, the method has been made consistently second order for all mesh types (See Scheufler and Roenby~\cite{Scheufler2018}). The isoAdvector method implements new ideas in both the interface reconstruction step and the interface advection step.
@@ -139,6 +139,8 @@ In the next sections, comparisons between flow solvers other than OpenFOAM are e
 \section{Single bubble rising benchmark}\label{sec_hysingcase}
 %%======================================================================
 
+The OpenFOAM numerical methods exposed in section~\ref{sec_nummethods}, namely MULES, isoAlpha and plicRDF-5 will be compared together with reference data on the case of a single rising bubble. 
+
 \subsection{Definition of test case}\label{sec_hysingcasedef}
 %%-----------------------------------------------------------------
 The test case number 2 as described by Hysing et al.~\cite{Hysing2009} has been used here. We have used only this second test case as it is more representative of final industrial applications. 
@@ -153,7 +155,7 @@ The test case number 2 as described by Hysing et al.~\cite{Hysing2009} has been 
 \end{figure}
 The 2D case setup is schematized in Figure~\ref{benchmark_scheme}. First phase (liquid) properties are $\rho_1=1000$ kg/m$^3$, $\mu_1=10$ kg/(ms), while second phase (gas) takes $\rho_2=1$ kg/m$^3$, $\mu_2=0.1$ kg/(ms) as physical parameters. The surface tension is $\sigma=1.96$ kg/s$^2$. Gravity is taken as $g=0.98$ m/s$^2$. Extension of this test case to 3D is straightforward~\cite{Adelsberger2014}.
 
-Uniform Cartesian 2D grids (cubic hexahedra) or triangular 2D grids (triangular prisms) cells were used for all simulations. The present work will only discuss 2D simulations. Six grid resolutions have been used ranging from 20 to 640 cells along the~$x$ direction, with the cell size halfed in each refinement. Hexahedral uniform grids were generated with the utility \verb+blockMesh+, while prismatic grids were created with Pointwise\textsuperscript{\textregistered} using mean edge size identical to the Cartesian grids. Grids are in the plane~$xy$ and the bubble rises along the positive~$y$ direction. As OpenFOAM computations are always tridimensional, there is one single cell in the~$z$ direction, which has been taken of the same size as along~$x$ or~$y$.
+Uniform Cartesian 2D grids (cubic hexahedra) or triangular 2D grids (triangular prisms) cells were used for all simulations. The present work will only discuss 2D simulations. Six grid resolutions have been used ranging from 20 to 640 cells along the~$x$ direction, with the cell size halfed in each refinement. Hexahedral uniform grids were generated with the utility \verb+blockMesh+, while prismatic grids were created with Pointwise\textsuperscript{\textregistered} using mean edge size identical to the Cartesian grids. Grids are in the plane~$xy$ on a $1\times 2$ domain. The bubble rises along the positive~$y$ direction. As OpenFOAM computations are always tridimensional, there is one single cell in the~$z$ direction, which has been taken of the same size as along~$x$ or~$y$.
 
 The bubble was initialized as a cylinder in 2D using the \verb+setAlphaField+ utility. The Crank-Nicolson second order time scheme with blending coefficient 0.9 has been used for all computations. The convective term was treated with \verb+Gauss limitedlinearV 1+, and in the MULES simulations \verb+Gauss vanLeer+ was used for the $\alpha$ convection. The \verb+Gauss linear+ scheme was used for gradient terms on hexahedral grids while \verb+pointCellsLeastSquares+ was used for prismatic meshes. The GAMG implicit solver was used for pressure terms, while the smooth solver was used for the velocity. Constant time steps have been used, starting at $\Delta t=0.002$ s for the coarsest level and reduced for finer grids to keep the maximum CFL number below 0.05. The PIMPLE algorithm was run with \verb+nOuterCorrectors+ set to 3 and with 3 PISO correctors (\verb+nCorrectors+ set to 3). Setting \verb+momentumPredictor+ to \verb+true+ was necessary for accuracy with isoAdvector. The number of non-orthogonal correctors (\verb+nNonOrthogonalCorrectors+) was set to 1 on prismatic grids. Computations were run up to physical time $t=3$~s in 2D. 
 
@@ -317,8 +319,12 @@ Figure~\ref{fig:HB_bubble_shape_time_evol_uns080_MULES_vs_plicRDF5} (resp.~\ref{
 \section{Spurious currents quantification}\label{sec_spuriouscase}
 %%======================================================================
 
+In an attempt to quantify the spurious currents generated by VoF methods, this section uses a zero gravity single bubble test case, inspired from section~\ref{sec_hysingcase}, to compare the OpenFOAM numerical methods with each other. 
+
 \subsection{Definition of test case}\label{sec_spuriouscasedef}
 %%-----------------------------------------------------------------
+
+As illustrated on figure~\ref{fig:spuriousCurrents_scheme}, we derived a zero gravity test case from the definition of the single rising bubble, stated in paragraph~\ref{sec_hysingcasedef}. The domain is now $1\times 1$ and the gravity is set to 0. All other physical and numerical parameters are kept identical.
 
 \begin{figure}[!h]
 \begin{center}
