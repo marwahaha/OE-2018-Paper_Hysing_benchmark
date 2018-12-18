@@ -144,16 +144,32 @@ The test case number 2 as described by Hysing et al.~\cite{Hysing2009} has been 
 \caption{Configuration and boundary conditions for 2D bubble benchmark.}
 \label{benchmark_scheme}
 \end{figure}
-The 2D case setup is schematized in Figure~\ref{benchmark_scheme}. First phase (liquid) properties are $\rho_1=1000$ kg/m$^3$, $\mu_1=10$ kg/(ms), while second phase (gas) takes $\rho_2=1$ kg/m$^3$, $\mu_2=0.1$ kg/(ms) as physical parameters. The surface tension is $\sigma=1.96$ kg/s$^2$. Gravity is taken as $g=0.98$ m/s$^2$. Extension of this test case to 3D is straightforward.
+The 2D case setup is schematized in Figure~\ref{benchmark_scheme}. First phase (liquid) properties are $\rho_1=1000$ kg/m$^3$, $\mu_1=10$ kg/(ms), while second phase (gas) takes $\rho_2=1$ kg/m$^3$, $\mu_2=0.1$ kg/(ms) as physical parameters. The surface tension is $\sigma=1.96$ kg/s$^2$. Gravity is taken as $g=0.98$ m/s$^2$. Extension of this test case to 3D is straightforward~\cite{Adelsberger2014}.
 
-Uniform Cartesian 2D grids (cubic hexahedra) or triangular 2D grids (triangular prisms) cells were used for all simulations. The present work will only discuss 2D simulations. Six grid resolutions have been used ranging from 20 to 640 cells along the $x$ direction, with the cell size halfed in each refinement. Hexahedral uniform grids were generated with the utility \verb+blockMesh+, while prismatic grids were created with Pointwise\textsuperscript{\textregistered} using the same edge size as in the Cartesian grids. 
+Uniform Cartesian 2D grids (cubic hexahedra) or triangular 2D grids (triangular prisms) cells were used for all simulations. The present work will only discuss 2D simulations. Six grid resolutions have been used ranging from 20 to 640 cells along the~$x$ direction, with the cell size halfed in each refinement. Hexahedral uniform grids were generated with the utility \verb+blockMesh+, while prismatic grids were created with Pointwise\textsuperscript{\textregistered} using mean edge size identical to the Cartesian grids. Grids are in the plane~$xy$ and the bubble rises along the positive~$y$ direction. As OpenFOAM computations are always tridimensional, there is one single cell in the~$z$ direction, which has been taken of the same size as along~$x$ or~$y$.
 
 The bubble was initialized as a cylinder in 2D using the \verb+setAlphaField+ utility. The Crank-Nicolson second order time scheme with blending coefficient 0.9 has been used for all computations. The convective term was treated with \verb+Gauss limitedlinearV 1+, and in the MULES simulations \verb+Gauss vanLeer+ was used for the $\alpha$ convection. The \verb+Gauss linear+ scheme was used for gradient terms on hexahedral grids while \verb+pointCellsLeastSquares+ was used for prismatic meshes. The GAMG implicit solver was used for pressure terms, while the smooth solver was used for the velocity. Constant time steps have been used, starting at $\Delta t=0.002$ s for the coarsest level and reduced for finer grids to keep the maximum CFL number below 0.05. The PIMPLE algorithm was run with \verb+nOuterCorrectors+ set to 3 and with 3 PISO correctors (\verb+nCorrectors+ set to 3). Setting \verb+momentumPredictor+ to \verb+true+ was necessary for accuracy with isoAdvector. The number of non-orthogonal correctors (\verb+nNonOrthogonalCorrectors+) was set to 1 on prismatic grids. Computations were run up to physical time $t=3$~s in 2D. 
 
 \subsection{Results}\label{sec_hysingresults}
 %%-----------------------------------------------------------------
-Post-processing quantities of interest are described in details in~\cite{Hysing2009,Adelsberger2014}. These are the vertical position of the bubble centroid, the bubble rise velocity, the bubble circularity, area and volume. The circularity is defined as the inverse ratio of the bubble surface perimeter to the area circle. TODO:DEFINE FORMULA HERE FOR POSTPROCESSING QUANTITIES. It takes the value 1 at the beginning of the computation and decreases as the bubble deforms.
+Post-processing quantities of interest are described in details in~\cite{Hysing2009,Adelsberger2014}. These are the vertical position of the bubble centroid, the bubble rise velocity, the bubble circularity, area and volume. The volume of the bubble~$V_b$ is computed by a integral of the gas volume fraction over the entire domain~$\Omega$ as: 
+\begin{equation}
+  V_b = \int_{\Omega} (1-\alpha)\,dv
+\end{equation}
 
+The centroid of mass~$\overrightarrow{x_G}$ is computed through: 
+\begin{equation}
+  \overrightarrow{x_G} = \frac{1}{V_b}~\int_{\Omega}(1-\alpha)\overrightarrow{x}\,dv
+\end{equation}
+where $\overrightarrow{x}$ represents the cell center coordinates. Similarly, the bubble velocity is calculated with:
+\begin{equation}
+  \overrightarrow{U_b} = \frac{1}{V_b}~\int_{\Omega}(1-\alpha)\overrightarrow{U}\,dv
+\end{equation}
+where $\overrightarrow{U}$ denotes the mixture velocity, which is stored at cell centers in OpenFOAM. The bubble area~$A_b$ is determined by using the method \verb+area+ of the C++ class \verb+sampledIsoSurfaceCell+ to compute the isosurface $\alpha=0.5$. The circularity~$\cal{C}$ is then defined as the ratio of the equivalent radius of the bubble based on its volume~$r_V$, to the equivalent radius of the bubble based on its surface~$r_A$, namely, since we are in 2D: 
+\begin{equation}
+ {\cal{C}} = \frac{r_V}{r_A} = \frac{\sqrt{V_b/(\pi \Delta_z)}}{ A_b/(2 \pi \Delta_z)} 
+\end{equation}
+where $\Delta_z$ denotes the size of the grid in the non-significant direction~$z$. The circularity~$\cal{C}$ takes the value 1 at the beginning of the computation and decreases as the bubble deforms.
 
 \begin{figure}[!h]
 \begin{center}
@@ -294,7 +310,7 @@ MULES and isoAdvector at times larger than roughly 2.5 s. This is mainly explain
 
 
 
-
+\clearpage
 %%======================================================================
 \section{Spurious currents quantification}\label{sec_spuriouscase}
 %%======================================================================
