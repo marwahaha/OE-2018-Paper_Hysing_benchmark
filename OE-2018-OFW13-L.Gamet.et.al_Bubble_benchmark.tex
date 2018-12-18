@@ -102,6 +102,7 @@ IsoAdvector gives a sharper interface, but validation data for this new method i
 We consider here an unsteady, laminar, isothermal and incompressible two-phase flow. The flow is supposed without mass transfer across the gas-liquid interface. The governing equations are the continuity and linear momentum equations. The incompressibility condition is written as a divergence free equation for the velocity field:
 \begin{equation}
   \nabla \cdot \overrightarrow{U} = 0
+\label{diveqn}
 \end{equation}
 The Navier-Stokes equations for the momentum evolution are written as: 
 \begin{equation}
@@ -109,6 +110,7 @@ The Navier-Stokes equations for the momentum evolution are written as:
   \overrightarrow{\nabla} \cdot (\rho\overrightarrow{U}\overrightarrow{U}) = 
   \overrightarrow{\nabla} \cdot \left( \mu (\nabla\overrightarrow{U}+\nabla^T\overrightarrow{U})\right)
   - \overrightarrow{\nabla} p + \rho \overrightarrow{g} + \overrightarrow{F_{\sigma}}
+\label{NSeqns}
 \end{equation}
 where $p$, $\rho$, $\mu$ are respectively the pressure, density and viscosity of the mixture. $\overrightarrow{U}$ denotes the velocity of the mixture. $\overrightarrow{g}$ is the gravity. $\overrightarrow{F_{\sigma}}$ represents the surface tension force, which is expressed as a source term in the momentum equation. 
 
@@ -125,8 +127,11 @@ steadily across the face during the interval. In the development of this procedu
 no assumptions are made on the shape of a cell face, which makes the advection step 
 applicable on arbitrary meshes.
 
-Except for the interface advection step, the \verb+interIsoFoam+ (isoAdvector) solver is identical to the \verb+interFoam+ (MULES) solver. They both solve the governing system of equations in a seggregated manner using the PIMPLE algorithm (a combination of the SIMPLE and PISO algorithms) for pressure-velocity coupling. 
-Strictly speaking, isoAdvector and MULES also differ in the way \verb+rhoPhi+ (used in the momentum convection term) is calculated, which is described in~\cite{roenby_isoadvector:_2018}.
+Except for the interface advection step, the \verb+interIsoFoam+ (isoAdvector) solver is identical to the \verb+interFoam+ (MULES) solver. They both solve the governing system of equations in a seggregated manner using the PIMPLE algorithm (a combination of the SIMPLE and PISO algorithms) for pressure-velocity coupling. Strictly speaking, isoAdvector and MULES also differ in the way \verb+rhoPhi+ (used in the momentum convection term) is calculated, which is described in~\cite{roenby_isoadvector:_2018}.
+
+Following the nomenclature in Scheufler and Roenby~\cite{Scheufler2018}, we will refer to the original work of Roenby~\cite{Roenby160405} as {\em{isoAlpha}}. In the present paper, we have used the reconstruction method plic-RDF with 5 iterations from~\cite{Scheufler2018}. We will refer to corresponding results as {\em{plicRDF-5}}. 
+
+In the next sections, comparisons between flow solvers other than OpenFOAM are exposed, either with the literature~\cite{Hysing2009} or with the Basilisk code (\url{http://basilisk.fr}). In the Basilisk code, equations~\ref{diveqn}-\ref{NSeqns} are solved thanks to the approach implemented by Popinet~\citep{popinet2015}. The corresponding finite volume spatial discretization makes use of a graded quadtree partitioning. All variables are collocated at the cell centers. Time advancement of the momentum equation is achieved with an implicit scheme, while the advection equation is solved using the Bell-Colella-Glaz scheme~\cite{bell1989}. A piecewise-linear geometrical VoF method is used to solve the continuity equation~\cite{popinet2009}.
 
 %%======================================================================
 \section{Single bubble rising benchmark}\label{sec_hysingcase}
@@ -150,7 +155,7 @@ Uniform Cartesian 2D grids (cubic hexahedra) or triangular 2D grids (triangular 
 
 The bubble was initialized as a cylinder in 2D using the \verb+setAlphaField+ utility. The Crank-Nicolson second order time scheme with blending coefficient 0.9 has been used for all computations. The convective term was treated with \verb+Gauss limitedlinearV 1+, and in the MULES simulations \verb+Gauss vanLeer+ was used for the $\alpha$ convection. The \verb+Gauss linear+ scheme was used for gradient terms on hexahedral grids while \verb+pointCellsLeastSquares+ was used for prismatic meshes. The GAMG implicit solver was used for pressure terms, while the smooth solver was used for the velocity. Constant time steps have been used, starting at $\Delta t=0.002$ s for the coarsest level and reduced for finer grids to keep the maximum CFL number below 0.05. The PIMPLE algorithm was run with \verb+nOuterCorrectors+ set to 3 and with 3 PISO correctors (\verb+nCorrectors+ set to 3). Setting \verb+momentumPredictor+ to \verb+true+ was necessary for accuracy with isoAdvector. The number of non-orthogonal correctors (\verb+nNonOrthogonalCorrectors+) was set to 1 on prismatic grids. Computations were run up to physical time $t=3$~s in 2D. 
 
-\subsection{Results}\label{sec_hysingresults}
+\subsection{Results and discussion}\label{sec_hysingresults}
 %%-----------------------------------------------------------------
 Post-processing quantities of interest are described in details in~\cite{Hysing2009,Adelsberger2014}. These are the vertical position of the bubble centroid, the bubble rise velocity, the bubble circularity, area and volume. The volume of the bubble~$V_b$ is computed by a integral of the gas volume fraction over the entire domain~$\Omega$ as: 
 \begin{equation}
@@ -164,6 +169,7 @@ The centroid of mass~$\overrightarrow{x_G}$ is computed through:
 where $\overrightarrow{x}$ represents the cell center coordinates. Similarly, the bubble velocity is calculated with:
 \begin{equation}
   \overrightarrow{U_b} = \frac{1}{V_b}~\int_{\Omega}(1-\alpha)\overrightarrow{U}\,dv
+  \label{eqnPPvelocity}
 \end{equation}
 where $\overrightarrow{U}$ denotes the mixture velocity, which is stored at cell centers in OpenFOAM. The bubble area~$A_b$ is determined by using the method \verb+area+ of the C++ class \verb+sampledIsoSurfaceCell+ to compute the isosurface $\alpha=0.5$. The circularity~$\cal{C}$ is then defined as the ratio of the equivalent radius of the bubble based on its volume~$r_V$, to the equivalent radius of the bubble based on its surface~$r_A$, namely, since we are in 2D: 
 \begin{equation}
@@ -194,10 +200,18 @@ where $\Delta_z$ denotes the size of the grid in the non-significant direction~$
 \caption{Time evolution of rise velocity on triangular grids for solvers MULES (top), isoAdvector with isoAlpha (middle) and plicRDF5 (botttom) reconstruction schemes.}
 \label{fig:HB_Uns_bubble_velocity}
 \end{figure}
-
-
  
-The Figures~\ref{fig:HB_Struct_bubble_velocity} and~\ref{fig:HB_Uns_bubble_velocity} show the bubble shape obtained with MULES and isoAdvector for the finest 2D simulation at time $t = 3$ s together with results from the reference data from ~\cite{Hysing2009}. Slight differences appear in the prediction of the front and back main interface positions (see zooms 1 and 2), with the most noticable difference being isoAdvector falling slightly behind the other methods. All the codes predict rather different trains of detached bubbles (see zoom 3 frame). The time evolution of Figure~\ref{fig:3} shows a comparison between MULES and isoAdvector at grid resolution 160, and for the 2D calculations. Again results are very similar, especially for the main bubble shape, and we see a small retardation of the isoAdvector bubble compared with the MULES bubble towards the end of the simulation.
+The figure~\ref{fig:HB_Struct_bubble_velocity} shows results for the rise velocity for MULES, isoAdvector isoAlpha and plicRDF-5 on hexahedral grids compared to the highest resolution available literature reference data. We first note that grid convergence is reached by all three OpenFOAM solvers. MULES and plicRDF-5 results are rather similar, while isoAlpha results converge to a slightly different solution. The figure~\ref{fig:HB_Uns_bubble_velocity} shows results on triangular grids. At higher grid resolutions, we clearly notice that neither MULES nor isoAlpha reach a grid convergence, showing overestimated bubble velocities on the cyan curve. This behavior can be explained by an increase of spurious currents at highest grid resolutions for these methods. The integral procedure to compute bubble velocity of equation~\ref{eqnPPvelocity} inherently accounts for spurious currents in the solution. 
+
+Figure~\ref{fig:HB_bubble_shape_3_others} shows the bubble shape at time $t=3$ obtained by solvers of the literature. It can first be noted that every code gives a different solution, particularly in the trains of detached bubbles. The test case number 2 of the benchmark of Hysing~\cite{Hysing2009} is more challenging to simulate than test case 1.  Figures~\ref{fig:HB_bubble_shape_3_MULES}, \ref{fig:HB_bubble_shape_3_isoAlpha} and~\ref{fig:HB_bubble_shape_3_plicRDF5} compare the bubble shapes for respectively MULES, isoAlpha and plicRDF-5, for two grid resolutions, either hexahedral or prismatic. All bubble shapes for all solvers are rather coherent in terms of global positions of the main leading and trailing fronts. For each solver of figures~\ref{fig:HB_bubble_shape_3_MULES}, \ref{fig:HB_bubble_shape_3_isoAlpha} and~\ref{fig:HB_bubble_shape_3_plicRDF5}, the trains of detached bubbles are different between hexahedral and prismatic grids. The finest grids results are close to MooNMD and Basilik shapes as shown on figure~\ref{fig:HB_bubble_shape_3_others}. 
+
+Circularity is shown on figures~\ref{fig:HB_bubble_circularity160} and~\ref{fig:HB_bubble_circularity640} at respective grid resolutions 160x320 and 640x1280. OpenFOAM solvers compare well to literature, except with the TP2D solver which experiences a different bubble tail structure (see top left plot in figure~\ref{fig:HB_bubble_shape_3_others}). The difference between square (continuous lines) and triangular (dashed lines) grids on MULES, isoAlpha or plicRDF-5 circularities is more visible for time $t>2$ up to the end of the simulation. This is mainly due to the difference in the bubble tail, discussed hereafter. 
+
+For completeness about the bubble shape at time $t=3$, we show on figures~\ref{fig:HB_compareOFMULES_Fineststruct.vs.uns}, \ref{fig:HB_compareOFisoAlpha_Fineststruct.vs.uns} and~\ref{fig:HB_compareOFplicRDF5_Fineststruct.vs.uns} a comparison of the bubble shape of increasing size triangular grids with respect to the finest Cartesian grid made with the same solver. MULES and plicRDF-5 show a correct grid convergence. At the finest levels (320x640 and 640x1280), square and triangular grids are almost identical, particularly in their main fronts. One should however notice a small discrepancy in the upper front for the MULES solver at 640x1280 (see figure~\ref{fig:HB_compareOFMULES_Fineststruct.vs.uns}). For the isoAlpha solver, the difference between square and triangular grids remains and even increases slightly at the highest resolution.
+
+Figure~\ref{fig:HB_bubble_shape_time_evol_uns080_MULES_vs_plicRDF5} (resp.~\ref{fig:HB_bubble_shape_time_evol_uns320_MULES_vs_plicRDF5}) shows a typical time sequence of bubble shape, plotted every 0.5s, on a 80x160 (resp. 320x640) hexahedral grid, and for solvers MULES and plicRDF-5. Differences between both solvers are only visible after time $t=2.5$. Increasing the resolution blurs these differences. 
+
+the bubble shape obtained with MULES, isoAdvector isoAlpha and plicRDF-5 for the finest 2D simulation at time $t = 3$ s together with results from the reference data from ~\cite{Hysing2009}. Slight differences appear in the prediction of the front and back main interface positions (see zooms 1 and 2), with the most noticable difference being isoAdvector falling slightly behind the other methods. All the codes predict rather different trains of detached bubbles (see zoom 3 frame). The time evolution of Figure~\ref{fig:3} shows a comparison between MULES and isoAdvector at grid resolution 160, and for the 2D calculations. Again results are very similar, especially for the main bubble shape, and we see a small retardation of the isoAdvector bubble compared with the MULES bubble towards the end of the simulation.
 
 
 
@@ -227,7 +241,7 @@ The Figures~\ref{fig:HB_Struct_bubble_velocity} and~\ref{fig:HB_Uns_bubble_veloc
  \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_MULES-uns.pdf}
  \vspace{-6mm}
 \end{center}
-\caption{Bubble shape at time t=3 for MULES. Left: structured grids, Right: unstructured.}
+\caption{Bubble shape at time t=3 for MULES. Left: square grids, Right: triangular.}
 \label{fig:HB_bubble_shape_3_MULES}
 \end{figure}
 
@@ -238,7 +252,7 @@ The Figures~\ref{fig:HB_Struct_bubble_velocity} and~\ref{fig:HB_Uns_bubble_veloc
  \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_isoAlpha-uns.pdf}
  \vspace{-6mm}
 \end{center}
-\caption{Bubble shape at time t=3 for isoAdvector iso-Alpha. Left: structured grids, Right: unstructured.}
+\caption{Bubble shape at time t=3 for isoAdvector isoAlpha. Left: square grids, Right: triangular.}
 \label{fig:HB_bubble_shape_3_isoAlpha}
 \end{figure}
 
@@ -249,7 +263,7 @@ The Figures~\ref{fig:HB_Struct_bubble_velocity} and~\ref{fig:HB_Uns_bubble_veloc
  \includegraphics[width=0.45\textwidth]{figures/bubble_shape_t=3_plicRDF5-uns.pdf}
  \vspace{-6mm}
 \end{center}
-\caption{Bubble shape at time t=3 for isoAdvector plicRDF-5. Left: structured grids, Right: unstructured.}
+\caption{Bubble shape at time t=3 for isoAdvector plicRDF-5. Left: square grids, Right: triangular.}
 \label{fig:HB_bubble_shape_3_plicRDF5}
 \end{figure}
 
@@ -266,13 +280,13 @@ MULES and isoAdvector at times larger than roughly 2.5 s. This is mainly explain
 
 \begin{figure}[!h]
   \includegraphics[width=\textwidth]{figures/HysingB_bubble_circularity_160x320.pdf}
-  \caption{Bubble circularity at resolution $160\times320.$. Comparison of MULES, isoAdvector iso-Alpha and plicRDF-5 with literature results for both Cartesian and triangular grids.}
+  \caption{Bubble circularity at resolution $160\times320.$. Comparison of MULES, isoAdvector isoAlpha and plicRDF-5 with literature results for both Cartesian and triangular grids.}
   \label{fig:HB_bubble_circularity160}
 \end{figure}
 
 \begin{figure}[!h]
   \includegraphics[width=\textwidth]{figures/HysingB_bubble_circularity_640x1280.pdf}
-  \caption{Bubble circularity at resolution $640\times1280.$. Comparison of MULES, isoAdvector iso-Alpha and plicRDF-5 with literature results for both Cartesian and triangular grids.}
+  \caption{Bubble circularity at resolution $640\times1280.$. Comparison of MULES, isoAdvector isoAlpha and plicRDF-5 with literature results for both Cartesian and triangular grids.}
   \label{fig:HB_bubble_circularity640}
 \end{figure}
 
@@ -330,7 +344,7 @@ MULES and isoAdvector at times larger than roughly 2.5 s. This is mainly explain
 
 
 
-\subsection{Results}\label{sec_spuriousresults}
+\subsection{Results and discussion}\label{sec_spuriousresults}
 %%-----------------------------------------------------------------
 
 
@@ -340,7 +354,7 @@ MULES and isoAdvector at times larger than roughly 2.5 s. This is mainly explain
  \includegraphics[width=\textwidth]{figures/spuriousCurrents_MULES_vs_isoAlpha_vs_plicRDF-5-scaleX80_time=1p5_080x160.png}
  \vspace{-7mm}
 \end{center}
-\caption{Visualization of spurious currents. plicRDF-5 vectors on the r.h.s. are scaled by a factor 80 with respect to MULES or iso-Alpha.}
+\caption{Visualization of spurious currents. plicRDF-5 vectors on the r.h.s. are scaled by a factor 80 with respect to MULES or isoAlpha.}
 \label{fig:spuriousCurrents_velocityField}
 \end{figure}
 
