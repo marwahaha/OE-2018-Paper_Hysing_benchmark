@@ -63,27 +63,27 @@
 @timestamp rot 0
 @timestamp font 0
 @timestamp char size 1.000000
-@timestamp def "Mon Dec 17 15:58:31 2018"
+@timestamp def "Tue Dec 18 16:18:22 2018"
 @with string
 @    string on
 @    string loctype view
-@    string 0.45, 0.21
+@    string 0.44, 0.21
 @    string color 1
 @    string rot 0
 @    string font 3
 @    string just 0
 @    string char size 1.800000
-@    string def "Structured"
+@    string def "Hexahedral"
 @with string
 @    string on
 @    string loctype view
-@    string 1.415, 0.21
+@    string 1.44, 0.21
 @    string color 1
 @    string rot 0
 @    string font 3
 @    string just 0
 @    string char size 1.800000
-@    string def "Unstructured"
+@    string def "Triangular"
 @r0 off
 @link r0 to g0
 @r0 type above
