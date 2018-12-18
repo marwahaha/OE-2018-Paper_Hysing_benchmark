@@ -206,7 +206,7 @@ where $\Delta_z$ denotes the size of the grid in the non-significant direction~$
 \label{fig:HB_Uns_bubble_velocity}
 \end{figure}
  
-The figure~\ref{fig:HB_Struct_bubble_velocity} shows results for the rise velocity for MULES, isoAdvector isoAlpha and plicRDF-5 on hexahedral grids compared to the highest resolution available literature reference data. We first note that grid convergence is reached by all three OpenFOAM solvers. MULES and plicRDF-5 results are rather similar, while isoAlpha results converge to a slightly different solution. The figure~\ref{fig:HB_Uns_bubble_velocity} shows results on triangular grids. At higher grid resolutions, we clearly notice that neither MULES nor isoAlpha reach a grid convergence, showing overestimated bubble velocities (see cyan curve). This behavior can be explained by an increase of spurious currents at highest grid resolutions for these methods. The integral procedure to compute bubble velocity of equation~\ref{eqnPPvelocity} inherently accounts for spurious currents in the solution. Spurious currents will be discussed hereafter in section~\ref{sec_spuriouscase}.
+The figure~\ref{fig:HB_Struct_bubble_velocity} shows results for the rise velocity for MULES, isoAdvector isoAlpha and plicRDF-5 on hexahedral grids compared to the highest resolution available literature reference data. We first note that grid convergence is reached by all three OpenFOAM solvers. MULES and plicRDF-5 results are rather similar, while isoAlpha results converge to a slightly different solution. The figure~\ref{fig:HB_Uns_bubble_velocity} shows results on triangular grids. At higher grid resolutions, we clearly notice that neither MULES nor isoAlpha reach a grid convergence, showing overestimated bubble velocities (see red curve). This behavior can be explained by an increase of spurious currents at highest grid resolutions for these methods. The integral procedure to compute bubble velocity of equation~\ref{eqnPPvelocity} inherently accounts for spurious currents in the solution. Spurious currents will be discussed hereafter in section~\ref{sec_spuriouscase}.
 
 Figure~\ref{fig:HB_bubble_shape_3_others} shows the bubble shape at time $t=3$ obtained by solvers of the literature. It can first be noted that every code gives a different solution, particularly in the trains of detached bubbles. As a matter of fact, the test case number 2 of the benchmark of Hysing~\cite{Hysing2009} is more challenging to simulate than test case 1. Figures~\ref{fig:HB_bubble_shape_3_MULES}, \ref{fig:HB_bubble_shape_3_isoAlpha} and~\ref{fig:HB_bubble_shape_3_plicRDF5} compare the bubble shapes for respectively MULES, isoAlpha and plicRDF-5, for two grid resolutions, either on hexahedral or prismatic meshes. All bubble shapes for all solvers are rather coherent in terms of global positions of the main leading and trailing fronts. For each solver of figures~\ref{fig:HB_bubble_shape_3_MULES}, \ref{fig:HB_bubble_shape_3_isoAlpha} and~\ref{fig:HB_bubble_shape_3_plicRDF5}, the trains of detached bubbles are different between hexahedral and prismatic grids. The finest grids results are close to MooNMD and Basilik shapes, as plotted on figure~\ref{fig:HB_bubble_shape_3_others}. 
 
@@ -355,7 +355,7 @@ where $R_1$ and $R_2$ are curvature radii along two perpendicular directions. As
 \begin{figure}[!h]
  \begin{center}
    \vspace{-1mm}
-   \includegraphics[width=\textwidth]{figures/spuriousCurrents_MULES_vs_isoAlpha_vs_plicRDF-5-scaleX80_time=1p5_080x160.png}
+   \includegraphics[width=\textwidth]{figures/spuriousCurrents_MULES_vs_isoAlpha_vs_plicRDF-5-scaleX80_time=1p5_080x160_quarter.png}
  \end{center}
  \vspace{-11mm}
  \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}}
@@ -373,7 +373,7 @@ where $R_1$ and $R_2$ are curvature radii along two perpendicular directions. As
     \\
  \end{tabular}
  \vspace{-11mm}
-\caption{Visualization of spurious currents at time $t=1.5$ for bubble under 0 gravity case. Left: MULES. Middle: isoAlpha. Right: plicRDF-5. Vectors on the r.h.s. plicRDF-5 image are scaled by a factor 80 with respect to MULES or isoAlpha. The red line materializes the isoline $\alpha=0.5$.}
+\caption{Bubble under 0 gravity: Visualization of spurious currents at time $t=1.5$ in top right quarter. Left: MULES. Middle: isoAlpha. Right: plicRDF-5. Vectors on the r.h.s. plicRDF-5 image are scaled by a factor 80 with respect to MULES or isoAlpha. The red line materializes the isoline $\alpha=0.5$.}
 \label{fig:spuriousCurrents_velocityField}
 \end{figure}
 
