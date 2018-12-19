@@ -6,3 +6,4 @@ proper: clean
 	rm OE-2018-OFW13-L.Gamet.et.al_Bubble_benchmark.pdf
 distrib:
 	tar zcvf OE-2018-Paper_Hysing_benchmark.tar.gz OE*.tex *.bst *.sty references.bib `grep includegraphics OE*.tex | sed -e 's/[{}]/ /g' | awk '{print $$NF}'`
+	zip OE-2018-Paper_Hysing_benchmark.zip OE*.tex *.bst *.sty references.bib `grep includegraphics OE*.tex | sed -e 's/[{}]/ /g' | awk '{print $$NF}'`
