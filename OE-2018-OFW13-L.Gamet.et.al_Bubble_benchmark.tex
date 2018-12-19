@@ -407,15 +407,7 @@ where $R_1$ and $R_2$ are curvature radii along two perpendicular directions. As
 \section{\small Conclusion}
 %%======================================================================
 
-We have presented a quantitative validation of the isoAdvector method against MULES and other 
-solvers from reference data in the literature. Two 2D test cases have been used. The first test case is the Hysing benchmark, as published by Hysing~\cite{Hysing2009}. This benchmark simulates a single bubble rising in a initially quiescent liquid. 
-
-
-isoAdvector has been verified to work for rising bubble simulation with similar accuracy as MULES and with a sharper interface and slightly smaller calculation times.
-This reference case will be contributed to the OpenFOAM\textsuperscript{\textregistered} tutorial wiki.
-
-Comment from Johan: 
-The general story we should convey is (in my opinion): isoAdvector can be used for surface tension dominated flows, but the sharper interface poses a challenge to the surface tension model in some simulations. These problems are rectified with the new reconstruction method, plicRDF-5, which also significantly reduces the spurious currents due to its more accurate interface curvature calculation.
+We have presented a quantitative validation of the isoAdvector method (isoAlpha and plicRDF-5) against MULES and other solvers from reference data in the literature. Two 2D test cases have been used. The first test case is the Hysing benchmark, as originally published by Hysing~\cite{Hysing2009}. This benchmark simulates a single bubble rising in a initially quiescent liquid. isoAdvector has been verified to work for rising bubble simulation with similar or greater accuracy as MULES and with a sharper interface and slightly smaller calculation times. These results demonstrate that isoAdvector can be used for surface tension dominated flows. However, the sharper interface poses a challenge to the surface tension model in some simulations, for example at high resolutions or on unstructured triangular-prisms grids. The new reconstruction method, plicRDF-5, rectifies these problems. The second validation case presented in this study aims at quantifying the spurious currents obtained in the three VoF variants tested here (MULES, isoAlpha and plicRDF-5). This second configuration consists in a 2D stagnant single bubble in a quiescent liquid, under zero gravity conditions. The case has been derived from the rising bubble benchmark, using similar physical and numerical parameters, except gravity and fluid domain size. The new reconstruction method, plicRDF-5, significantly reduces the spurious currents due to its more accurate interface curvature calculation. Moreover, the plicRDF-5 reconstruction method demonstrates a better prediction of the pressure jump across the bubble. 
 
 
 %%======================================================================
