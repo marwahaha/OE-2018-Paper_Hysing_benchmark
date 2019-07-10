@@ -62,7 +62,7 @@ spuriousCurrents_pressure_drop_t=3_160x320.pdf
 
 
 
-ABANDONNED (from OFW13 paper)
+ABANDONED (from OFW13 paper)
 ==============================
 bubble_shape2D_t=3.pdf
 bubble_shape2D_time_evol_160.pdf
@@ -70,7 +70,7 @@ bubble_sphericity3D.pdf
 bubble_velocity3D.pdf
 
 
-ABANDONNED (because too much curves)
+ABANDONED (because too much curves)
 ====================================
 bubble_shape_t=3_compareOF_uns.vs.struct-080.pdf
 bubble_shape_t=3_compareOF_uns.vs.struct-320.pdf
